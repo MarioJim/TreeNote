@@ -2,7 +2,6 @@ package com.swdesignteam.TreeNote.model;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.swdesignteam.TreeNote.model.note.Note;
 
 import javax.persistence.*;
@@ -14,15 +13,18 @@ public class Page {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private long id;
+
   @ManyToOne
   @JoinColumn(name = "book_id", referencedColumnName = "id")
   @JsonIgnore
   private Book book;
+
   @Column
   private String title;
-  @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+
+  @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
   @JoinColumn(name = "note_id", referencedColumnName = "id")
-  @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+  @JsonIgnore
   private Note note;
 
   public Page() {}

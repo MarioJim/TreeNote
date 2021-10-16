@@ -1,11 +1,15 @@
 package com.swdesignteam.TreeNote.model.request;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class NoteRequest {
 
   // Note
   private long id;
-  private long parent;
+  @JsonProperty("parent_id")
+  private long parentId;
   private double place;
+  @JsonProperty("note_type")
   private String noteType;
   // CodeNote, TextNote
   private String content;
@@ -18,8 +22,12 @@ public class NoteRequest {
     return id;
   }
 
-  public long getParent() {
-    return parent;
+  public void setId(long id) {
+    this.id = id;
+  }
+
+  public long getParentId() {
+    return parentId;
   }
 
   public double getPlace() {
@@ -40,5 +48,18 @@ public class NoteRequest {
 
   public String getSrc() {
     return src;
+  }
+
+  @Override
+  public String toString() {
+    return "NoteRequest{" +
+        "id=" + id +
+        ", parent_id=" + parentId +
+        ", place=" + place +
+        ", note_type='" + noteType + '\'' +
+        ", content='" + content + '\'' +
+        ", size=" + size +
+        ", src='" + src + '\'' +
+        '}';
   }
 }

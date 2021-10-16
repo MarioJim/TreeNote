@@ -19,12 +19,13 @@ public class NoteFactoryServiceImpl implements NoteFactoryService {
   NotesRepository notesRepository;
 
   @Override
-  public Note newNote(NoteRequest request) {
-    Note parent = notesRepository.getById(request.getParent());
+  public Note noteFromInsertReq(NoteRequest request) {
+    System.out.println(request);
+    Note parent = notesRepository.getById(request.getParentId());
     switch (request.getNoteType()) {
       case "Note":
         return new Note(request.getId(), parent, request.getPlace());
-      case "TextNode":
+      case "TextNote":
         return new TextNote(request.getId(), parent, request.getPlace(), request.getContent());
       case "CodeNote":
         return new CodeNote(request.getId(), parent, request.getPlace(), request.getContent());
@@ -37,7 +38,7 @@ public class NoteFactoryServiceImpl implements NoteFactoryService {
       case "UnorderedListNote":
         return new UnorderedListNote(request.getId(), parent, request.getPlace());
     }
-    return null;
+    throw new IllegalArgumentException("Invalid key 'note_type', got " + request.getNoteType());
   }
 
 }

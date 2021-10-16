@@ -1,10 +1,9 @@
 package com.swdesignteam.TreeNote.controller;
 
-import com.swdesignteam.TreeNote.model.Book;
 import com.swdesignteam.TreeNote.model.note.Note;
-import com.swdesignteam.TreeNote.repository.BooksRepository;
+import com.swdesignteam.TreeNote.model.request.NoteRequest;
 import com.swdesignteam.TreeNote.repository.NotesRepository;
-import com.swdesignteam.TreeNote.repository.PagesRepository;
+import com.swdesignteam.TreeNote.service.NotesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,13 +17,10 @@ import java.util.List;
 public class NotesController {
 
   @Autowired
-  BooksRepository booksRepository;
-
-  @Autowired
-  PagesRepository pagesRepository;
-
-  @Autowired
   NotesRepository notesRepository;
+
+  @Autowired
+  NotesService notesService;
 
   @GetMapping("/")
   public ResponseEntity<List<Note>> getAllNotes() {
@@ -38,9 +34,19 @@ public class NotesController {
         .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
   }
 
-  @GetMapping("/books")
-  public ResponseEntity<List<Book>> getAllBooks() {
-    return ResponseEntity.accepted().body(booksRepository.findAll());
+  @PostMapping("/new")
+  public ResponseEntity<Note> createNote(@RequestBody NoteRequest request) {
+    return ResponseEntity.accepted().body(notesService.createNote(request));
+  }
+
+  @PostMapping("/update")
+  public ResponseEntity<Note> updateNote(@RequestBody NoteRequest request) {
+    return ResponseEntity.accepted().body(notesService.updateNote(request));
+  }
+
+  @GetMapping("/delete/{id}")
+  public void deleteNote(@PathVariable("id") long id) {
+    notesService.deleteNoteById(id);
   }
 
 }

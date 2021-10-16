@@ -22,4 +22,8 @@ public class ImageNote extends Note {
     return src;
   }
 
+  public void setSrc(String src) {
+    this.src = src;
+  }
+
 }

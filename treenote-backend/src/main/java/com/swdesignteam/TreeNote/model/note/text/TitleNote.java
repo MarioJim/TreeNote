@@ -25,4 +25,8 @@ public class TitleNote extends TextNote {
     return size;
   }
 
+  public void setSize(int size) {
+    this.size = size;
+  }
+
 }

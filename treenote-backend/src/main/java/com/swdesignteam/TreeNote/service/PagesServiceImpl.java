@@ -24,6 +24,12 @@ public class PagesServiceImpl implements PagesService {
   @Autowired
   BooksRepository booksRepository;
 
+  @Override
+  public Note getNoteFromPageId(long id) {
+    Page page = pagesRepository.getById(id);
+    return page.getNote();
+  }
+
   @Transactional
   @Override
   public Page createPage(PageRequest request) {
