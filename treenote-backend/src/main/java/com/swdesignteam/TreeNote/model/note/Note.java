@@ -1,4 +1,4 @@
-package com.swdesignteam.TreeNote.model;
+package com.swdesignteam.TreeNote.model.note;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
@@ -15,19 +15,46 @@ public class Note {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private long id;
 
+  @Column(name = "note_type", insertable = false, updatable = false)
+  private String noteType;
+
   @ManyToOne
   @JoinColumn(referencedColumnName = "id")
-//  @JsonBackReference
+  @JsonBackReference
   private Note parent;
 
   @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
   private List<Note> children;
 
+  @Column
+  private double place;
+
+  public Note() {}
+
+  public Note(long id, Note parent, double place) {
+    this.id = id;
+    this.parent = parent;
+    this.place = place;
+  }
+
   public long getId() {
     return id;
+  }
+
+  public String getNoteType() {
+    return noteType;
+  }
+
+  public Note getParent() {
+    return parent;
   }
 
   public List<Note> getChildren() {
     return children;
   }
+
+  public double getPlace() {
+    return place;
+  }
+
 }

@@ -1,7 +1,5 @@
 package com.swdesignteam.TreeNote.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -9,21 +7,19 @@ import java.util.List;
 @Table(name = "books")
 public class Book {
 
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private long id;
+  @Column
+  private String title;
+  @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "book")
+  private List<Page> pages;
+
   public Book() {}
 
   public Book(String title) {
     this.title = title;
   }
-
-  @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  private long id;
-
-  @Column(name = "title")
-  private String title;
-
-  @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "book")
-  private List<Page> pages;
 
   public long getId() {
     return id;
@@ -37,4 +33,12 @@ public class Book {
     return pages;
   }
 
+  @Override
+  public String toString() {
+    return "Book{" +
+        "id=" + id +
+        ", title='" + title + '\'' +
+        ", pages=" + pages +
+        '}';
+  }
 }
