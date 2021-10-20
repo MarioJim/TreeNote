@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 public class PagesController {
 
   @Autowired
-  PagesService pagesService;
+  private PagesService pagesService;
 
   @GetMapping("/{id}")
   public ResponseEntity<Note> getPage(@PathVariable("id") long id) {

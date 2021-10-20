@@ -2,14 +2,12 @@ package com.swdesignteam.TreeNote.controller;
 
 import com.swdesignteam.TreeNote.model.note.Note;
 import com.swdesignteam.TreeNote.model.request.NoteRequest;
-import com.swdesignteam.TreeNote.repository.NotesRepository;
 import com.swdesignteam.TreeNote.service.NotesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
@@ -17,19 +15,11 @@ import java.util.List;
 public class NotesController {
 
   @Autowired
-  NotesRepository notesRepository;
-
-  @Autowired
-  NotesService notesService;
-
-  @GetMapping("/")
-  public ResponseEntity<List<Note>> getAllNotes() {
-    return new ResponseEntity<>(notesRepository.findAll(), HttpStatus.ACCEPTED);
-  }
+  private NotesService notesService;
 
   @GetMapping("/{id}")
   public ResponseEntity<Note> getNoteById(@PathVariable("id") long id) {
-    return notesRepository.findById(id)
+    return notesService.getNoteById(id)
         .map(note -> new ResponseEntity<>(note, HttpStatus.ACCEPTED))
         .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
   }

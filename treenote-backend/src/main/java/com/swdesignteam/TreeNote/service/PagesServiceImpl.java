@@ -16,13 +16,13 @@ import javax.transaction.Transactional;
 public class PagesServiceImpl implements PagesService {
 
   @Autowired
-  NotesRepository notesRepository;
+  private NotesRepository notesRepository;
 
   @Autowired
-  PagesRepository pagesRepository;
+  private PagesRepository pagesRepository;
 
   @Autowired
-  BooksRepository booksRepository;
+  private BooksRepository booksRepository;
 
   @Override
   public Note getNoteFromPageId(long id) {

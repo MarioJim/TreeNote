@@ -13,10 +13,10 @@ import java.util.List;
 public class BooksServiceImpl implements BooksService {
 
   @Autowired
-  BooksRepository booksRepository;
+  private BooksRepository booksRepository;
 
   @Autowired
-  PagesService pagesService;
+  private PagesService pagesService;
 
   public List<Book> getAllBooks() {
     return booksRepository.findAll();

@@ -1,13 +1,16 @@
 package com.swdesignteam.TreeNote.model.request;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class PageRequest {
 
-  private final long book_id;
-  private final String title;
   private long id;
+  @JsonProperty("book_id")
+  private final long bookId;
+  private final String title;
 
-  public PageRequest(long book_id, String title) {
-    this.book_id = book_id;
+  public PageRequest(long bookId, String title) {
+    this.bookId = bookId;
     this.title = title;
   }
 
@@ -16,7 +19,7 @@ public class PageRequest {
   }
 
   public long getBookId() {
-    return book_id;
+    return bookId;
   }
 
   public String getTitle() {

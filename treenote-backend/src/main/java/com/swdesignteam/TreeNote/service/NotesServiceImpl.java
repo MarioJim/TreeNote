@@ -11,15 +11,21 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 public class NotesServiceImpl implements NotesService {
 
   @Autowired
-  NotesRepository notesRepository;
+  private NotesRepository notesRepository;
 
   @Autowired
-  NoteFactoryService noteFactoryService;
+  private NoteFactoryService noteFactoryService;
+
+  @Override
+  public Optional<Note> getNoteById(long id) {
+    return notesRepository.findById(id);
+  }
 
   @Override
   public Note createNote(NoteRequest request) {

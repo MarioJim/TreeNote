@@ -16,7 +16,7 @@ import java.util.List;
 public class BooksController {
 
   @Autowired
-  BooksService booksService;
+  private BooksService booksService;
 
   @GetMapping("/")
   public ResponseEntity<List<Book>> getBooks() {

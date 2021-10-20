@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 public class NoteFactoryServiceImpl implements NoteFactoryService {
 
   @Autowired
-  NotesRepository notesRepository;
+  private NotesRepository notesRepository;
 
   @Override
   public Note noteFromInsertReq(NoteRequest request) {
