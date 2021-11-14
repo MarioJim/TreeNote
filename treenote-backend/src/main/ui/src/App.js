@@ -2,6 +2,7 @@ import './App.css';
 import React from "react";
 import Sidebar from './Sidebar';
 import NotesList from './components/NotesList';
+import Book from './components/Book';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
           <Sidebar/>
           <div className="switch">
           <Switch>
-            <Route path='/' exact component={NotesList} />
+            <Route path='/' exact component={Book} />
           </Switch>
           </div>
         </div>

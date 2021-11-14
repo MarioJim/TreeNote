@@ -6,6 +6,8 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "ajax": "0.0.4",
+    "axios": "^0.24.0",
     "cdbreact": "^1.2.1",
     "material-icons": "^1.10.0",
     "react": "^17.0.2",
