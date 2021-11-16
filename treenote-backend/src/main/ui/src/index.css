@@ -12,6 +12,7 @@ code {
     monospace;
 }
 
+/* 
 .page-title{
   color: #111; 
   font-family: 'Open Sans Condensed', sans-serif; 
@@ -29,6 +30,7 @@ code {
   margin-top: 5%;
   padding: 1%;
   box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+  font-size: 30px;
 }
 
 .notes-list{
@@ -65,4 +67,4 @@ code {
     margin-left: auto;
     padding-right:  15px;
     padding-left: 15px;
-}
+} */

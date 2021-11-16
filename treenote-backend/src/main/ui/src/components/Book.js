@@ -1,15 +1,17 @@
 import React, {Component, component} from 'react'
 import axios from 'axios'
 import Note from './Note'
-
+import { Tree } from 'antd';
+import Sidebar from './sidebar/sidebar'
 
 class Book extends Component {
   constructor(props){
     super(props)
-
+    
     this.state = {
       pages : []
     }
+
   }
 
   componentDidMount(){
@@ -22,20 +24,16 @@ class Book extends Component {
       console.log(error)
     })
   }
-
+  
   render(){
     const {pages} = this.state
     
     return(
       <div>
-        <div className='page-box'>
-          <div className='page-title'>Arquitectura de Software</div>
-          <div className='notes-list'>
-          {pages.map(page => <Note id={page.id} text={page.title} date={page.id}/>)}
-          </div>
-        </div>
+        {pages.map(page=> <div className='page-box'>
+          <div className='page-title'>{page.id} {page.title}</div>
+        </div>)}
       </div>
-
     )
   }
 }
