@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./sidebar.css";
-import plusIcon from "../../Assets/plus-icon.png"
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Book from "../Book"
+import Page from "../Page";
 
 function Sidebar() {
 
@@ -10,14 +12,19 @@ function Sidebar() {
         <h1>Notes</h1>
         <button className="app-sidebar-Add-Button">Add</button>
       </div>
+      
+      <button className="app-sidebar-Change-Button">Books</button>
+      <button className='app-sidebar-Change-Button'>Pages</button>
+      <button className='app-sidebar-Change-Button'>Notes</button>
       <div className="app-sidebar-notes">
-        <div className="app-sidebar-note">
-          <div className="sidebar-note-title">
-            <strong>TITLE</strong>
-            <button>Delete</button>
-          </div>
-          <p>Note preview</p>
-        </div>
+
+      <Router>
+        <Switch>
+              <Route path='/' exact component={Book} />
+              <Route path='/pages' exact component={Page}/>
+        </Switch>
+      </Router>
+        
       </div>
     </div>
   );

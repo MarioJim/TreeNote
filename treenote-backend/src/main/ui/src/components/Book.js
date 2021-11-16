@@ -1,8 +1,6 @@
 import React, {Component, component} from 'react'
 import axios from 'axios'
 import Note from './Note'
-import { Tree } from 'antd';
-import Sidebar from './sidebar/sidebar'
 
 class Book extends Component {
   constructor(props){
@@ -29,10 +27,15 @@ class Book extends Component {
     const {pages} = this.state
     
     return(
+      
       <div>
-        {pages.map(page=> <div className='page-box'>
-          <div className='page-title'>{page.id} {page.title}</div>
-        </div>)}
+        <div className="app-sidebar-note">
+          <div className="sidebar-note-title">
+            <strong>TITLE</strong>
+            <button>Delete</button>
+          </div>
+          <p>Note preview</p>
+        </div>
       </div>
     )
   }

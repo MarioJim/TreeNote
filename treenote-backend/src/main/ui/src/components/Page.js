@@ -1,8 +1,5 @@
 import React, {Component, component} from 'react'
 import axios from 'axios'
-import Note from './Note'
-import { Tree } from 'antd';
-import Sidebar from './sidebar/sidebar'
 
 class Page extends Component {
   constructor(props){
@@ -30,13 +27,7 @@ class Page extends Component {
     
     return(
       <div>
-        <Sidebar></Sidebar>
-        <div className='page-box'>
-          <div className='page-title'>Arquitectura de Software</div>
-          <div className='notes-list'>
-          {pages.map(page => <Note id={page.id} text={page.title} date={page.id}/>)}
-          </div>
-        </div> 
+        <p>asdhkashdjkasd</p> 
       </div>
     )
   }

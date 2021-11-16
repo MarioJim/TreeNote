@@ -4,6 +4,17 @@
   border-right: 1px solid #ddd;
 }
 
+.app-sidebar-Change-Button{
+  font-size: inherit;
+  font-family: inherit;
+  cursor: pointer;
+  color: #08c;
+  align-items: center;
+  text-align: center;
+  margin-left: 15%;
+}
+
+
 .app-sidebar-Add-Button{
     background: none;
     border: 0;
