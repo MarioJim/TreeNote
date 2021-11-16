@@ -7,7 +7,7 @@ class Book extends Component {
     super(props)
     
     this.state = {
-      pages : []
+      books : []
     }
 
   }
@@ -16,26 +16,45 @@ class Book extends Component {
     axios.get('http://localhost:3000/api/books/')
     .then(response => {
       console.log(response)
-      this.setState({pages: response.data})
+      this.setState({books: response.data})
     })
     .catch(error =>{
       console.log(error)
     })
   }
+
   
   render(){
-    const {pages} = this.state
+    const {books} = this.state
     
+    async function deleteBook(id){
+        await axios.get('http://localhost:3000/api/books/delete/'+id)
+      .then(response => {
+        console.log(response)
+      })
+      .catch(error =>{
+        console.log(error)
+      })
+    }
+
+    function deleteBookFunction(id){
+      deleteBook(id);
+    }
+
     return(
       
       <div>
-        <div className="app-sidebar-note">
-          <div className="sidebar-note-title">
-            <strong>TITLE</strong>
-            <button>Delete</button>
+        <h2>Books</h2>
+        {books.map(book => 
+        <div>
+          <div className="app-sidebar-note" onClick={()=> this.props.history.push('/pages/'+book.pages[0].id)}>
+            <div className="sidebar-note-title" >
+              <strong>{book.id}</strong>
+            </div>
           </div>
-          <p>Note preview</p>
-        </div>
+          <button onClick={()=>deleteBookFunction(book.id)}>Delete</button>
+          </div>
+        )}
       </div>
     )
   }
