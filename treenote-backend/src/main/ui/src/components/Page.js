@@ -1,4 +1,4 @@
-import React, {Component, component} from 'react'
+import React, {Component, component, useState} from 'react'
 import axios from 'axios'
 
 class Page extends Component {
@@ -6,13 +6,20 @@ class Page extends Component {
     super(props)
 
     this.state = {
-      pages : []
+      pages : [],
+      activeNote : -1
     }
+
+    this.delta = this.delta.bind(this);
+  }
+
+    delta(id) {
+      this.setState({
+          activeNote : id
+      });
   }
 
   componentDidMount(){
-
-    
       const pageId = this.props.match.params.id
         axios.get('http://localhost:3000/api/pages/'+pageId)
         .then(response => {
@@ -26,31 +33,38 @@ class Page extends Component {
   
   render(){
 
-    const {pages} = this.state
+    const {pages, activeNote} = this.state
 
     async function deleteNote(id){
         await axios.get('http://localhost:3000/api/notes/delete/'+id)
       .then(response => {
-        console.log(response)
+        window.location.reload()
       })
       .catch(error =>{
         console.log(error)
       })
     }
 
-    function deleteNoteFunction(id){
-      deleteNote(id);
-    }
+    function setActiveNote(page, deltaFunction){
+      //Change value
+      deltaFunction(page.id)
 
+      if(page.children.length>0){
+        console.log(page.children[0].id)
+      }
+      else{
+        console.log("no hay nota guardada")
+      }
+    }
 
     return(
       <div>
         <h2>Pages</h2>
         {pages.map(page => 
-          <div className="app-sidebar-note">
+          <div className={`app-sidebar-note ${page.id === activeNote && "active"}`} onClick={()=> setActiveNote(page, this.delta)}>
             <div className="sidebar-note-title">
               <strong>{page.content}</strong>
-              <button onClick={()=>deleteNoteFunction(page.id)}>Delete</button>
+              <button onClick={()=>deleteNote(page.id)}>Delete</button>
             </div>
           </div>
         )}

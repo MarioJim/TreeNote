@@ -14,16 +14,15 @@ class Sidebar extends Component {
 
     async function addData(){
       if ( document.URL.includes("pages") ) {
-        const book = {title : "Untitle book"}
-        axios.post('http://localhost:3000/api/books/new', book)
-        .then(response => console.log(response))
+        // const book = {title : "Untitle book"}
+        // axios.post('http://localhost:3000/api/books/new', book)
+        // .then(response => console.log(response))
+        console.log("adding notes")
       }
       else {
-      //   const book = {title : "Untitle book"}
-      //   axios.post('http://localhost:3000/api/books/new', book)
-      //   .then(response => console.log(response))
-      // }
-      console.log("asd")
+        const book = {title : "Untitle book"}
+        axios.post('http://localhost:3000/api/books/new', book)
+        .then(response => window.location.reload())
       }
     }
 
