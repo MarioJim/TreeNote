@@ -9,8 +9,8 @@ class App extends Component {
     super(props)
 
     this.state = {
-      activeTitleId : -1,
-      activeContentId : -1
+      activeTitleId : "TITLE",
+      activeContentId : "preview note"
     }
 
     this.delta = this.delta.bind(this);

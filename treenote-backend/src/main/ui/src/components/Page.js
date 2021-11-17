@@ -54,8 +54,7 @@ class Page extends Component {
       if(page.children.length>0){
         const notaId = page.children[0].id
         const notaContent = page.children[0].content
-        console.log(notaId, notaContent)
-        activeNote(notaId, notaContent)
+        activeNote(titleContent, notaContent)
       }
       else{
         console.log("no hay nota guardada")

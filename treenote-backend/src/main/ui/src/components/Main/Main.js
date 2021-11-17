@@ -10,11 +10,8 @@ function Main({activeTitleId, activeContentId}){
             <textarea id="body" placeholder="Escribe tu nota aqui..."/>
         </div>
         <div className="app-main-note-preview">
-                {/* sistema despliegue */}
-                <h1 className="preview-title">TITLE</h1>
-                <div className="markdown-preview">note preview</div>
-                <p>{activeTitleId}</p>
-                <p>{activeContentId}</p>
+                <h1 className="preview-title">{activeTitleId}</h1>
+                <div className="markdown-preview">{activeContentId}</div>
         </div>
     </div>
     )
