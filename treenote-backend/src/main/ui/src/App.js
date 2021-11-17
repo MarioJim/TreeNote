@@ -6,9 +6,14 @@ import Main from "./components/Main/Main"
 
 function App() {
 
+  function activeNote(idTitle, idContent){
+    console.log("title", idTitle)
+    console.log("content", idContent)
+  }
+
   return (
       <div className="App">
-        <Sidebar/>
+        <Sidebar activeNote={activeNote}/>
         <Main/> 
       </div>
   );

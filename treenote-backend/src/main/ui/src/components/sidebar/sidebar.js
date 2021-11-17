@@ -12,17 +12,18 @@ class Sidebar extends Component {
 
   render(){
 
-    async function addData(){
+    async function addData(activeNote){
       if ( document.URL.includes("pages") ) {
         // const book = {title : "Untitle book"}
         // axios.post('http://localhost:3000/api/books/new', book)
         // .then(response => console.log(response))
         console.log("adding notes")
+        activeNote(2)
       }
       else {
         const book = {title : "Untitle book"}
         axios.post('http://localhost:3000/api/books/new', book)
-        .then(response => window.location.reload())
+        .then(response => console.log(response))
       }
     }
 
@@ -30,13 +31,13 @@ class Sidebar extends Component {
     <div className='app-sidebar'>
       <div className="app-sidebar-header">
         <h1>Notes</h1>
-        <button onClick={() => addData()} className="app-sidebar-Add-Button">Add</button>
+        <button onClick={() => addData(this.props.activeNote)} className="app-sidebar-Add-Button">Add</button>
       </div>
       <div className="app-sidebar-notes">
       <Router>
         <Switch>
               <Route path='/' exact component={Book}/>
-              <Route path='/pages/:id' exact component={Page}></Route>
+              <Route path='/pages/:id' render={(props) => <Page {...props} activeNote={this.props.activeNote}/>}></Route>
         </Switch>
       </Router>
         

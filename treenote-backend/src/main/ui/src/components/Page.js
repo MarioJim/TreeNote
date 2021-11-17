@@ -1,5 +1,6 @@
 import React, {Component, component, useState} from 'react'
 import axios from 'axios'
+import {Main} from './Main/Main'
 
 class Page extends Component {
   constructor(props){
@@ -45,12 +46,11 @@ class Page extends Component {
       })
     }
 
-    function setActiveNote(page, deltaFunction){
-      //Change value
-      deltaFunction(page.id)
-
+    function setActiveNote(page, activeNote){
+      
       if(page.children.length>0){
-        console.log(page.children[0].id)
+        console.log(page.children[0].content)
+        activeNote(page.id, page.children[0].id)
       }
       else{
         console.log("no hay nota guardada")
@@ -61,7 +61,7 @@ class Page extends Component {
       <div>
         <h2>Pages</h2>
         {pages.map(page => 
-          <div className={`app-sidebar-note ${page.id === activeNote && "active"}`} onClick={()=> setActiveNote(page, this.delta)}>
+          <div className={`app-sidebar-note ${page.id === activeNote && "active"}`} onClick={()=> {setActiveNote(page, this.props.activeNote); this.delta(page.id)}}>
             <div className="sidebar-note-title">
               <strong>{page.content}</strong>
               <button onClick={()=>deleteNote(page.id)}>Delete</button>
