@@ -1,6 +1,8 @@
 import "./Main.css"
 
-function Main(){
+
+function Main({activeTitleId, activeContentId}){
+
     return (
     <div className="app-main">
         <div className="app-main-note-edit">
@@ -11,6 +13,8 @@ function Main(){
                 {/* sistema despliegue */}
                 <h1 className="preview-title">TITLE</h1>
                 <div className="markdown-preview">note preview</div>
+                <p>{activeTitleId}</p>
+                <p>{activeContentId}</p>
         </div>
     </div>
     )

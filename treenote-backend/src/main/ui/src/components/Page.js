@@ -24,7 +24,6 @@ class Page extends Component {
       const pageId = this.props.match.params.id
         axios.get('http://localhost:3000/api/pages/'+pageId)
         .then(response => {
-          console.log(response)
           this.setState({pages: response.data.children})
         })
         .catch(error =>{
@@ -47,10 +46,16 @@ class Page extends Component {
     }
 
     function setActiveNote(page, activeNote){
-      
+      // console.log(page.content)
+      const titleId = page.id
+      const titleContent = page.content
+      // console.log(titleId, titleContent)
+
       if(page.children.length>0){
-        console.log(page.children[0].content)
-        activeNote(page.id, page.children[0].id)
+        const notaId = page.children[0].id
+        const notaContent = page.children[0].content
+        console.log(notaId, notaContent)
+        activeNote(notaId, notaContent)
       }
       else{
         console.log("no hay nota guardada")

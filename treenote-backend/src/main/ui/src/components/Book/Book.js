@@ -34,7 +34,7 @@ class Book extends Component {
     async function deleteBook(id){
         await axios.get('http://localhost:3000/api/books/delete/'+id)
       .then(response => {
-        window.location.reload()
+        console.log(response)
       })
       .catch(error =>{
         console.log(error)
