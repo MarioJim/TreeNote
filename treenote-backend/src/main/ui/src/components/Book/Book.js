@@ -1,6 +1,6 @@
 import React, {Component, component} from 'react'
 import axios from 'axios'
-import Note from './Note'
+import "./Book.css"
 
 class Book extends Component {
   constructor(props){
@@ -27,6 +27,10 @@ class Book extends Component {
   render(){
     const {books} = this.state
     
+    async function addBook(title){
+      console.log("adding my book", title)
+    }
+
     async function deleteBook(id){
         await axios.get('http://localhost:3000/api/books/delete/'+id)
       .then(response => {
@@ -44,16 +48,15 @@ class Book extends Component {
     return(
       
       <div>
-        <h2>Books</h2>
         {books.map(book => 
         <div>
-          <div className="app-sidebar-note" onClick={()=> this.props.history.push('/pages/'+book.pages[0].id)}>
-            <div className="sidebar-note-title" >
-              <strong>{book.id}</strong>
+            <div className="app-sidebar-note" onClick={()=> this.props.history.push('/pages/'+book.pages[0].id)}>
+              <div className="sidebar-note-title" >
+                <strong>{book.title}</strong>
+              </div>
             </div>
-          </div>
-          <button onClick={()=>deleteBookFunction(book.id)}>Delete</button>
-          </div>
+            <button onClick={()=>deleteBookFunction(book.id)}>Delete</button>
+        </div>
         )}
       </div>
     )

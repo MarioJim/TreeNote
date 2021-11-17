@@ -22,6 +22,7 @@
     "react-scripts": "^4.0.3",
     "react-sortable-tree": "^2.8.0",
     "react-sortable-tree-theme-full-node-drag": "^1.1.0",
+    "react-uuid": "^1.0.2",
     "web-vitals": "^1.1.2"
   },
   "scripts": {

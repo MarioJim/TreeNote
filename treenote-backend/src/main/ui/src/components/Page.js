@@ -10,38 +10,36 @@ class Page extends Component {
     }
   }
 
-  async componentDidMount(){
+  componentDidMount(){
 
-    if(this.props.match.params.id){
+    
       const pageId = this.props.match.params.id
         axios.get('http://localhost:3000/api/pages/'+pageId)
         .then(response => {
           console.log(response)
-          this.setState({pages: response.data})
+          this.setState({pages: response.data.children})
         })
         .catch(error =>{
           console.log(error)
         })
-    }
   }
   
   render(){
 
-    const {pages} = this.state 
+    const {pages} = this.state
     console.log(pages)
 
     return(
       <div>
         <h2>Pages</h2>
-        {/* <p>{pages.id}</p>
         {pages.map(page => 
           <div className="app-sidebar-note">
             <div className="sidebar-note-title">
-              <strong>{page.id}</strong>
+              <strong>{page.content}</strong>
               <button>Delete</button>
             </div>
           </div>
-        )} */}
+        )}
       </div>
     )
   }
