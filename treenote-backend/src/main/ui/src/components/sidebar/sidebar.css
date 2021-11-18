@@ -4,36 +4,37 @@
   border-right: 1px solid #ddd;
 }
 
+
 .app-sidebar-Change-Button{
   font-size: inherit;
   font-family: inherit;
   cursor: pointer;
-  color: #08c;
+  color: #4CAF50;
   align-items: center;
   text-align: center;
   margin-left: 15%;
 }
-
-
 .app-sidebar-Add-Button{
-    background: none;
-    border: 0;
-    margin: 0;
-    padding: 0;
-    font-size: inherit;
-    font-family: inherit;
-    cursor: pointer;
-    color: #08c;
+  background: #0088cc;
+  border: 1px #0088cc solid;
+  border-radius: 15px;
+  margin: right 10px;
+  font-size: inherit;
+  font-family: inherit;
+  cursor: pointer;
+  color: #dddddd;
+  padding: 15px;
+  transition-duration: .6s;
 }
 
+.app-sidebar-Add-Button:hover{
+  background-color: #dddddd; /* Green */
+  color: #0088cc;
+}
 
 .app-sidebar-header {
   display: flex;
   justify-content: space-between;
-  padding: 25px;
-}
-.app-sidebar-header h1 {
-  margin: 0;
 }
 
 .app-sidebar-notes {
@@ -41,7 +42,7 @@
   overflow-y: scroll;
 }
 .app-sidebar-note {
-  padding: 25px;
+  padding: 20px;
   cursor: pointer;
 }
 .sidebar-note-title {
@@ -66,4 +67,10 @@
 .app-sidebar-note.active small {
   background: #08c;
   color: white;
+}
+
+.app-sidebar-header h2{
+  width: 100%;
+  color: #dddddd;
+  border-bottom: 3px solid #999999;
 }

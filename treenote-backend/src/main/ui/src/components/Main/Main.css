@@ -6,25 +6,43 @@ body,
   height: 100vh;
   overflow: hidden;
   font-size: 16px;
-  background: url(https://www.toptal.com/designers/subtlepatterns/patterns/lightpaperfibers.png);
+  color: white;
+  background: #0E0E10;
 }
 
-button {
-  background: none;
-  border: 0;
-  margin: 0;
-  padding: 0;
+.saveButton {
+  background: #0088cc;
+  border: 1px #0088cc solid;
+  border-radius: 15px;
   font-size: inherit;
   font-family: inherit;
   cursor: pointer;
-  color: #08c;
+  color: #dddddd;
+  padding: 15px;
+  transition-duration: .6s;
 }
-button:hover {
-  color: #04c;
+.saveButton:hover {
+  border: 1px #dddddd solid;
+  background-color: #dddddd; /* Green */
+  color: #0088cc;
+}
+
+button{
+  border: 1px #dddddd solid;
+  background: #dddddd;
+  border-radius: 15px;
+  color: red;
+}
+
+button:hover{
+  border: 1px #d6322f solid;
+  background-color: #d6322f;
+  color: #dddddd;
 }
 
 .App {
   display: flex;
+  margin-left:1%;
 }
 
 .app-main {
@@ -33,10 +51,8 @@ button:hover {
   }
   .app-main-note-edit,
   .app-main-note-preview {
-    height: 50vh;
+    height: 55vh;
   }
-
-
   
   .no-active-note {
     width: 70%;
@@ -49,24 +65,23 @@ button:hover {
   
   /* Editing */
   .app-main-note-edit {
-    padding: 30px;
-    background-color: #BBDFC5;
-    border-radius: 15px;
-    margin: 20px;
+    padding: 25px;
   }
   
   .app-main-note-edit input,
   textarea {
     display: block;
-    border: 1px Solid #60935d;
+    border: 1px solid #ddd;
     margin-bottom: 20px;
-    width: 100%;
+    width: 96%;
     height: calc(50vh - 130px);
     padding: 10px;
     resize: none;
     font-size: inherit;
     font-family: inherit;
-    background-color: #BBDFC5;
+    background: #464648;
+    color: white;
+    border-radius: 5px;
   }
   .app-main-note-edit input {
     height: 50px;
@@ -75,18 +90,15 @@ button:hover {
   
   /* Preview */
   .app-main-note-preview {
-    /*border-top: 1px solid #ddd;*/
-    background-color: #FAD8D6;
+    border-top: 2px groove #ddd;
     overflow-y: scroll;
-    /*background: rgba(0, 0, 0, 0.02);*/
-    border-radius: 15px;
-    margin: 20px
+    background: rgba(0, 0, 0, 0.02);
   }
   
   .preview-title {
-    text-align: center;
     padding: 25px 25px 0 25px;
     margin: 0;
+    text-align: center;
   }
   
   .markdown-preview {
