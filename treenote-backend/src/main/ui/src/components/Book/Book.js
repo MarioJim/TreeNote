@@ -66,9 +66,9 @@ class Book extends Component {
 
     return(
 
-      <div>
+      <div> 
         {books.map(book => 
-            <div className={`app-sidebar-note ${book.id === activeBook && "active"}`} onClick={()=> {this.delta(book.id)}}>
+            <div key={book.id} className={`app-sidebar-note ${book.id === activeBook && "active"}`} onClick={()=> {this.delta(book.id)}}>
               <div className="sidebar-note-title" >
                 <strong onClick={()=> this.props.history.push('/pages/'+book.id)}>{book.title}</strong>
                 <button onClick={()=>setActiveBook(book)}>Edit</button>
