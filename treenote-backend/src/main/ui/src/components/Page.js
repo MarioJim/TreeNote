@@ -8,7 +8,8 @@ class Page extends Component {
 
     this.state = {
       pages : [],
-      activeNote : -1
+      activeNote : -1,
+      content : []
     }
 
     this.delta = this.delta.bind(this);
@@ -26,6 +27,11 @@ class Page extends Component {
       .then(response => {
         response.data.map(book =>
           {if(book.id == bookId){
+            if(book.pages[0].title=='New Page'){
+              const note = {parent_id: parseInt(book.pages[0].id)-1, note_type: "TextNote", content: "new note"}
+              axios.post('http://localhost:3000/api/notes/new', note)
+              .then(response => response.data)
+            }
             this.setState({pages : book.pages})
           }}
         )
@@ -33,11 +39,12 @@ class Page extends Component {
       .catch(error =>{
         console.log(error)
       })
+
   }
   
   render(){
 
-    const {pages, activeNote} = this.state
+    const {pages, activeNote, content} = this.state
 
     async function deleteNote(id){
         await axios.get('http://localhost:3000/api/pages/delete/'+id)
@@ -49,20 +56,30 @@ class Page extends Component {
       })
     }
 
+
+    async function getNote(pageId){
+      pageId = parseInt(pageId)
+      const res = await axios.get('http://localhost:3000/api/pages/'+pageId)
+      return res.data
+    }
+
+
     function setActiveNote(page, activeNote){
       // console.log(page.content)
       const titleId = page.id
-      const titleContent = page.content
-      // console.log(titleId, titleContent)
+      const title = page.title
+      
+      getNote(titleId).then(data =>{
 
-      if(page.length>0){
-        const notaId = page.children[0].id
-        const notaContent = page.children[0].content
-        activeNote(titleId, titleContent, notaId, notaContent)
-      }
-      else{
-        console.log("no hay nota guardada")
-      }
+        try{
+          console.log(titleId, title, data.children[0].id, data.children[0].content)
+        }
+        catch{
+          
+          window.location.reload()
+        }
+        
+      })
     }
 
     return(
