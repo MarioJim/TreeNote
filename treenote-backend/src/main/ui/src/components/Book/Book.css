@@ -2,7 +2,6 @@
     width: 30%;
     height: 100vh;
     border-right: 1px solid #ddd;
-    background: #1F1F23;
   }
   
   .app-sidebar-Change-Button{
@@ -19,7 +18,7 @@
   .app-sidebar-Add-Button{
       background: none;
       border: 0;
-      margin: right 10px;
+      margin: 0;
       padding: 0;
       font-size: inherit;
       font-family: inherit;
@@ -61,10 +60,10 @@
   }
   
   .app-sidebar-note:hover {
-    background: #464648;
+    background: #ddd;
   }
   .app-sidebar-note.active,
   .app-sidebar-note.active small {
-    background: #18181B;
+    background: #08c;
     color: white;
   }
