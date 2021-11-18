@@ -22,6 +22,7 @@ class Page extends Component {
   }
 
   componentDidMount(){
+      document.getElementById("bookName").remove(); 
       const bookId = parseInt(this.props.match.params.id)
       axios.get('http://localhost:3000/api/books/')
       .then(response => {
@@ -76,7 +77,9 @@ class Page extends Component {
 
     return(
       <div>
+        <div className='app-sidebar-header'>
         <h2>Pages</h2>
+        </div>
         {pages.map(page => 
           <div className={`app-sidebar-note ${page.id === activeNote && "active"}`} onClick={()=> {setActiveNote(page, this.props.activeNote); this.delta(page.id)}}>
             <div className="sidebar-note-title">

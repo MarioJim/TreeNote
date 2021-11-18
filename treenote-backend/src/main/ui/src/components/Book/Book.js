@@ -7,9 +7,16 @@ class Book extends Component {
     super(props)
     
     this.state = {
-      books : []
+      books : [],
+      activeBook : -1
     }
+    this.delta = this.delta.bind(this);
+  }
 
+    delta(id) {
+      this.setState({
+          activeBook : id
+      });
   }
 
   componentDidMount(){
@@ -24,7 +31,7 @@ class Book extends Component {
 
   
   render(){
-    const {books} = this.state
+    const {books, activeBook} = this.state
     
     async function addBook(title){
       console.log("adding my book", title)
@@ -44,18 +51,25 @@ class Book extends Component {
       deleteBook(id);
     }
 
+    function setActiveBook(book){
+      const bookId = book.id
+      const bookTitle = book.title
+      console.log(bookId, bookTitle)
+
+    }
+
+
     return(
 
       <div>
         {books.map(book => 
-        <div>
-            <div className="app-sidebar-note" onClick={()=> this.props.history.push('/pages/'+book.id)}>
+            <div className={`app-sidebar-note ${book.id === activeBook && "active"}`} onClick={()=> {this.delta(book.id)}}>
               <div className="sidebar-note-title" >
-                <strong>{book.title}</strong>
+                <strong onClick={()=> this.props.history.push('/pages/'+book.id)}>{book.title}</strong>
+                {/* <button onClick={()=>setActiveBook(book)}>Edit</button> */}
+                <button onClick={()=>deleteBookFunction(book.id)}>Delete</button>
               </div>
             </div>
-            <button onClick={()=>deleteBookFunction(book.id)}>Delete</button>
-        </div>
         )}
       </div>
     )
