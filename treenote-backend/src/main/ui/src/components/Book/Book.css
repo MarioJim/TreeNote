@@ -15,9 +15,8 @@
   margin-left: 15%;
 }
 
-input {
-  width: 90%;
-  margin-left: 2%;
+.editBook{
+  color: aqua;
 }
 
 .app-sidebar-Add-Button{
