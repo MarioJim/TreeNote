@@ -19,7 +19,7 @@ function Main({titleId, titleContent, noteId, noteContent}){
         console.log(document.getElementById('body').value)
     }
 
-    if(titleId==-1){
+    if(titleId===-1){
         return <div className='no-active-note'>Nota no seleccionada</div>
     }
 

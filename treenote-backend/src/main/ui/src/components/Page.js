@@ -70,7 +70,6 @@ class Page extends Component {
       const title = page.title
       
       getNote(titleId).then(data =>{
-
           activeNote(titleId, title, data.children[0].id, data.children[0].content)        
       })
     }

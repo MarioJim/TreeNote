@@ -37,7 +37,7 @@ class Sidebar extends Component {
   return (
     <div className='app-sidebar'>
       <div className="app-sidebar-header">
-        <h1>Notes</h1>
+        <h1 onClick={()=>console.log("asdsa")}>Notes</h1>
         <button onClick={() => addData(this.props.activeNote)} className="app-sidebar-Add-Button">Add</button>
       </div>
       <div className="app-sidebar-notes">
