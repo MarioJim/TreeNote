@@ -26,10 +26,11 @@ class Sidebar extends Component {
         .then(response => addNote(response.data.id))
       }
       else {
-        const book = {title : "Untitle book"}
+        var bookName = document.getElementById('bookName').value
+        if(!bookName){bookName="Untitle book"}
+        const book = {title : bookName}
         axios.post('http://localhost:3000/api/books/new', book)
         .then(response => window.location.reload())
-        
       }
     }
 
@@ -39,11 +40,12 @@ class Sidebar extends Component {
         <h1 onClick={()=> window.location.href = '/'} >Notes</h1>
         <button onClick={() => addData(this.props.activeNote)} className="app-sidebar-Add-Button">Add</button>
       </div>
+      <input className='input-bookName' placeholder='book name' id='bookName'></input>
       <div className="app-sidebar-notes">
       <Router>
         <Switch>
-              <Route path='/' exact component={Book}/>
-              <Route path='/pages/:id' render={(props) => <Page {...props} activeNote={this.props.activeNote}/>}></Route>
+              <Route path='/' key='root' exact component={Book}/>
+              <Route path='/pages/:id' key='pages' render={(props) => <Page {...props} activeNote={this.props.activeNote}/>}></Route>
         </Switch>
       </Router>
         

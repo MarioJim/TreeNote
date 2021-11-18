@@ -5,17 +5,8 @@ import "./Main.css"
 function Main({titleId, titleContent, noteId, noteContent}){
 
 
-    // const updateTitle = (titleId, newTitle) =>{
-    //     const noteTitle = {parent_id: parentId, note_type : "TextNote", content : "Untitle Note"}
-    //     axios.post('http://localhost:3000/api/notes/new', noteTitle)
-    //     .then(response => window.location.reload())
-    // }
-
-    // const updateNote = (NoteId, newNote) =>{
-        
-    // }
-
     async function addNote(id, content){
+        console.log("adding note")
         const note = {parent_id: parseInt(id)-1, note_type: "TextNote", content: content}
         axios.post('http://localhost:3000/api/notes/new', note)
         .then(response => window.location.reload())

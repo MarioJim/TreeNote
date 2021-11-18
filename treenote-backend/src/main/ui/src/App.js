@@ -18,18 +18,20 @@ class App extends Component {
     this.delta = this.delta.bind(this);
   }
 
-  delta(titleId, titleContent, noteId, noteContent) {
+  delta(titleId, titleContent, noteId, noteContent, bookId, bookTitle) {
     this.setState({
       titleId : titleId,
       titleContent : titleContent,
       noteId : noteId,
-      noteContent : noteContent
+      noteContent : noteContent,
+      bookId : bookId,
+      bookTitle : bookTitle
     });
   }
 
   render(){
 
-  const {titleId, titleContent, noteId, noteContent} = this.state
+  const {titleId, titleContent, noteId, noteContent, bookId, bookTitle} = this.state
 
   return (
       <div className="App">

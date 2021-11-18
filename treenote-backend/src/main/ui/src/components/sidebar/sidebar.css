@@ -62,3 +62,13 @@
   background: #08c;
   color: white;
 }
+
+.input-bookName{
+  width: 85%;
+  color: #999;
+  padding: 14px 20px;
+  margin: 8px 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
