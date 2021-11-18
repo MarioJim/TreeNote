@@ -8,12 +8,12 @@ import axios from "axios";
 class Sidebar extends Component {
   constructor(props){
     super(props)
+    
   }
 
   render(){
-
     async function addNote(id){
-      const note = {parent_id: parseInt(id)-1, note_type: "TextNote", content: "My note"}
+      const note = {parent_id: parseInt(id)-1, note_type: "TextNote", content: "Empty note"}
       axios.post('http://localhost:3000/api/notes/new', note)
       .then(response => window.location.reload())
     }
@@ -36,7 +36,7 @@ class Sidebar extends Component {
   return (
     <div className='app-sidebar'>
       <div className="app-sidebar-header">
-        <h1 onClick={()=>console.log("asdsa")}>Notes</h1>
+        <h1 onClick={()=> window.location.href = '/'} >Notes</h1>
         <button onClick={() => addData(this.props.activeNote)} className="app-sidebar-Add-Button">Add</button>
       </div>
       <div className="app-sidebar-notes">

@@ -22,9 +22,16 @@ function Main({titleId, titleContent, noteId, noteContent}){
     }
 
     const updateData = (titleId, noteId) =>{
+
         var title = document.getElementById('title').value
         var note = document.getElementById('body').value
-        console.log(titleId, noteId)
+        
+        if(!title){
+            title = titleContent
+        }
+        if(!note){
+            note = noteContent
+        }
 
         //Delete page
         axios.get('http://localhost:3000/api/pages/delete/'+titleId)
@@ -44,7 +51,7 @@ function Main({titleId, titleContent, noteId, noteContent}){
     <div className="app-main">
         <div className="app-main-note-edit">
             <input type="text" id="title" placeholder={titleContent} autoFocus/>
-            <textarea id="body" placeholder="Escribe tu nota aqui..."/>
+            <textarea id="body" placeholder={noteContent}/>
             <button onClick={()=> {updateData(titleId, noteId)}}>Save note</button>
         </div>
         <div className="app-main-note-preview">

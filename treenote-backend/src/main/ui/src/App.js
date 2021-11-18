@@ -31,11 +31,6 @@ class App extends Component {
 
   const {titleId, titleContent, noteId, noteContent} = this.state
 
-  function activeNote(idTitle, idContent){
-    console.log("title", idTitle)
-    console.log("content", idContent)
-  }
-
   return (
       <div className="App">
         <Sidebar activeNote={this.delta}/>
