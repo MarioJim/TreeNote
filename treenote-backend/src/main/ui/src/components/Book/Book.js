@@ -15,7 +15,6 @@ class Book extends Component {
   componentDidMount(){
     axios.get('http://localhost:3000/api/books/')
     .then(response => {
-      console.log(response)
       this.setState({books: response.data})
     })
     .catch(error =>{
@@ -50,7 +49,7 @@ class Book extends Component {
       <div>
         {books.map(book => 
         <div>
-            <div className="app-sidebar-note" onClick={()=> this.props.history.push('/pages/'+book.pages[0].id)}>
+            <div className="app-sidebar-note" onClick={()=> this.props.history.push('/pages/'+book.id)}>
               <div className="sidebar-note-title" >
                 <strong>{book.title}</strong>
               </div>

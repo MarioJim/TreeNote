@@ -21,14 +21,18 @@ class Page extends Component {
   }
 
   componentDidMount(){
-      const pageId = this.props.match.params.id
-        axios.get('http://localhost:3000/api/pages/'+pageId)
-        .then(response => {
-          this.setState({pages: response.data.children})
-        })
-        .catch(error =>{
-          console.log(error)
-        })
+      const bookId = parseInt(this.props.match.params.id)
+      axios.get('http://localhost:3000/api/books/')
+      .then(response => {
+        response.data.map(book =>
+          {if(book.id == bookId){
+            this.setState({pages : book.pages})
+          }}
+        )
+      })
+      .catch(error =>{
+        console.log(error)
+      })
   }
   
   render(){
@@ -36,7 +40,7 @@ class Page extends Component {
     const {pages, activeNote} = this.state
 
     async function deleteNote(id){
-        await axios.get('http://localhost:3000/api/notes/delete/'+id)
+        await axios.get('http://localhost:3000/api/pages/delete/'+id)
       .then(response => {
         window.location.reload()
       })
@@ -51,10 +55,10 @@ class Page extends Component {
       const titleContent = page.content
       // console.log(titleId, titleContent)
 
-      if(page.children.length>0){
+      if(page.length>0){
         const notaId = page.children[0].id
         const notaContent = page.children[0].content
-        activeNote(titleContent, notaContent)
+        activeNote(titleId, titleContent, notaId, notaContent)
       }
       else{
         console.log("no hay nota guardada")
@@ -67,7 +71,7 @@ class Page extends Component {
         {pages.map(page => 
           <div className={`app-sidebar-note ${page.id === activeNote && "active"}`} onClick={()=> {setActiveNote(page, this.props.activeNote); this.delta(page.id)}}>
             <div className="sidebar-note-title">
-              <strong>{page.content}</strong>
+              <strong>{page.title}</strong>
               <button onClick={()=>deleteNote(page.id)}>Delete</button>
             </div>
           </div>
