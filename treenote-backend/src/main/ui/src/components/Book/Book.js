@@ -50,12 +50,12 @@ class Book extends Component {
       <div>
         {books.map(book => 
         <div>
-            <div className="app-sidebar-note" onClick={()=> this.props.history.push('/pages/'+book.pages[0].id)}>
+            <div className="app-sidebar-note">
               <div className="sidebar-note-title" >
-                <strong>{book.title}</strong>
+                <strong onClick={()=> this.props.history.push('/pages/'+book.pages[0].id)}>{book.title}</strong>
+                <button onClick={()=>deleteBookFunction(book.id)}>Delete</button>
               </div>
             </div>
-            <button onClick={()=>deleteBookFunction(book.id)}>Delete</button>
         </div>
         )}
       </div>
