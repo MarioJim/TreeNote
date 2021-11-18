@@ -36,7 +36,7 @@ public class NotesServiceImpl implements NotesService {
   @Transactional
   @Override
   public Note updateNote(NoteRequest request) {
-    Note oldNote = notesRepository.getById(request.getId());
+    Note oldNote = notesRepository.findById(request.getId()).get();
 
     if (Objects.equals(oldNote.getNoteType(), request.getNoteType())) { // Same type
       Note newNote = noteFactoryService.noteFromInsertReq(request);
