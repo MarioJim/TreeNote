@@ -54,20 +54,25 @@ class Book extends Component {
     function setActiveBook(book){
       const bookId = book.id
       const bookTitle = book.title
-      console.log(bookId, bookTitle)
 
+      if(document.getElementById('bookName').value){
+        const newTitle = document.getElementById('bookName').value
+        const newBook = { id : bookId, title : newTitle}
+        axios.post('http://localhost:3000/api/books/update', newBook)
+        .then(response => window.location.reload())
+      }
     }
 
 
     return(
 
-      <div>
+      <div> 
         {books.map(book => 
-            <div className={`app-sidebar-note ${book.id === activeBook && "active"}`} onClick={()=> {this.delta(book.id)}}>
+            <div key={book.id} className={`app-sidebar-note ${book.id === activeBook && "active"}`} onClick={()=> {this.delta(book.id)}}>
               <div className="sidebar-note-title" >
                 <strong onClick={()=> this.props.history.push('/pages/'+book.id)}>{book.title}</strong>
-                {/* <button onClick={()=>setActiveBook(book)}>Edit</button> */}
-                <button onClick={()=>deleteBookFunction(book.id)}>Delete</button>
+                <button onClick={()=>setActiveBook(book)} className="editButton">Edit</button>
+                <button onClick={()=>deleteBookFunction(book.id)} className="deleteButton">Delete</button>
               </div>
             </div>
         )}

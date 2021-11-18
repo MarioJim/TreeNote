@@ -41,7 +41,7 @@ function Main({titleId, titleContent, noteId, noteContent}){
     return (
     <div className="app-main">
         <div className="app-main-note-edit">
-            <input type="text" id="title" placeholder={titleContent} autoFocus/>
+            <input className='inputTitle' type="text" id="title" placeholder={titleContent} autoFocus/>
             <textarea id="body" placeholder={noteContent}/>
             <button  onClick={()=> {updateData(titleId, noteId)}} className="saveButton">Save note</button>
         </div>

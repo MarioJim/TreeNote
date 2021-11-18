@@ -15,10 +15,32 @@
   margin-left: 15%;
 }
 
+
 input {
-    width: 90%;
-    margin-left: 2%;
+            width: 90%;
+            margin-left: 2%;
+        }
+.editBook{
+  color: aqua;
+
 }
+
+.editButton{
+    background-color: #dddddd;
+    border: 1px #dddddd solid;
+    border-radius: 15px;
+    font-size: inherit;
+    font-family: inherit;
+    cursor: pointer;
+    color: #4CAF50;
+    transition-duration: .6s;
+}
+
+.editButton:hover{
+    background-color: #dddddd;
+    color: #4CAF50;
+}
+
 
 .app-sidebar-Add-Button{
     background: #0088cc;
@@ -34,9 +56,10 @@ input {
 }
 
 .app-sidebar-Add-Button:hover {
-    background-color: #dddddd; /* Green */
+    background-color: #dddddd;
     color: #0088cc;
 }
+
 
 
 
@@ -64,9 +87,7 @@ input {
   display: flex;
   justify-content: space-between;
 }
-.app-sidebar-note button {
-  color: crimson;
-}
+
 .app-sidebar-note p {
   margin: 10px 0;
 }
