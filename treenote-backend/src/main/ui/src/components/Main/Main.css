@@ -6,8 +6,7 @@ body,
   height: 100vh;
   overflow: hidden;
   font-size: 16px;
-  color: white;
-  background: #0E0E10;
+  background: url(https://www.toptal.com/designers/subtlepatterns/patterns/lightpaperfibers.png);
 }
 
 button {
@@ -21,12 +20,11 @@ button {
   color: #08c;
 }
 button:hover {
-  color: white;
+  color: #04c;
 }
 
 .App {
   display: flex;
-  margin-left:1%;
 }
 
 .app-main {
@@ -57,14 +55,12 @@ button:hover {
     display: block;
     border: 1px solid #ddd;
     margin-bottom: 20px;
-    width: 96%;
+    width: 100%;
     height: calc(50vh - 130px);
     padding: 10px;
     resize: none;
     font-size: inherit;
     font-family: inherit;
-    background: #464648;
-    color: white;
   }
   .app-main-note-edit input {
     height: 50px;

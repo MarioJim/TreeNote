@@ -3,7 +3,6 @@ WORKDIR /app
 COPY .mvn/ .mvn
 COPY mvnw pom.xml ./
 COPY src ./src
-RUN apt-get update && apt-get install dos2unix && dos2unix mvnw
 RUN ./mvnw clean package -DskipTests
 
 FROM openjdk:11-jre-slim-bullseye
