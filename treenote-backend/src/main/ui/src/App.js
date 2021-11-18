@@ -9,34 +9,37 @@ class App extends Component {
     super(props)
 
     this.state = {
-      activeTitleId : "TITLE",
-      activeContentId : "preview note"
+      titleId : -1,
+      titleContent : "TITLE",
+      noteId : -1,
+      noteContent : "preview note"
     }
 
     this.delta = this.delta.bind(this);
   }
 
-  delta(idTitle, idContent) {
+  delta(titleId, titleContent, noteId, noteContent) {
     this.setState({
-      activeTitleId : idTitle,
-      activeContentId : idContent
+      titleId : titleId,
+      titleContent : titleContent,
+      noteId : noteId,
+      noteContent : noteContent
     });
   }
 
   render(){
 
-  const {activeTitleId, activeContentId} = this.state
+  const {titleId, titleContent, noteId, noteContent} = this.state
 
   function activeNote(idTitle, idContent){
     console.log("title", idTitle)
     console.log("content", idContent)
-    this.delta(idTitle)
   }
 
   return (
       <div className="App">
         <Sidebar activeNote={this.delta}/>
-        <Main activeTitleId={activeTitleId} activeContentId={activeContentId}/> 
+        <Main titleId={titleId} titleContent={titleContent} noteId={noteId} noteContent={noteContent}/> 
       </div>
   );
   }

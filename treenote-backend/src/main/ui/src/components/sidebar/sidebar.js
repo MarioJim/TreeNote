@@ -12,17 +12,25 @@ class Sidebar extends Component {
 
   render(){
 
+    async function addNote(id){
+      const note = {parent_id: parseInt(id)-1, note_type: "TextNote", content: "My note"}
+      axios.post('http://localhost:3000/api/notes/new', note)
+      .then(response => window.location.reload())
+    }
+
     async function addData(activeNote){
       if ( document.URL.includes("pages") ) {
-        var parentId = parseInt(document.URL.split(/[/ ]+/).pop())-1;
-        const noteTitle = {parent_id: parentId, note_type : "TextNote", content : "Untitle Note"}
-        axios.post('http://localhost:3000/api/notes/new', noteTitle)
-        .then(response => window.location.reload())
+        console.log("entre")
+        var bookId = parseInt(document.URL.split(/[/ ]+/).pop());
+        const page = {book_id: bookId, title : "Untitle Note"}
+        axios.post('http://localhost:3000/api/pages/new', page)
+        .then(response => addNote(response.data.id))
       }
       else {
         const book = {title : "Untitle book"}
         axios.post('http://localhost:3000/api/books/new', book)
         .then(response => window.location.reload())
+        
       }
     }
 
