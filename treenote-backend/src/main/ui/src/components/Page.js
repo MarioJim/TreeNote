@@ -71,14 +71,7 @@ class Page extends Component {
       
       getNote(titleId).then(data =>{
 
-        try{
-          console.log(titleId, title, data.children[0].id, data.children[0].content)
-        }
-        catch{
-          
-          window.location.reload()
-        }
-        
+          activeNote(titleId, title, data.children[0].id, data.children[0].content)        
       })
     }
 
