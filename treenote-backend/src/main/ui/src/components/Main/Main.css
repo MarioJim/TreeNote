@@ -21,7 +21,7 @@ body,
   padding: 15px;
   transition-duration: .6s;
 }
-<<<<<<< HEAD
+
 .saveButton:hover {
   border: 1px #dddddd solid;
   background-color: #dddddd; /* Green */
@@ -39,10 +39,6 @@ button:hover{
   border: 1px #d6322f solid;
   background-color: #d6322f;
   color: #dddddd;
-=======
-button:hover {
-  color: white;
->>>>>>> origin/main
 }
 
 .App {
@@ -86,14 +82,14 @@ button:hover {
     font-family: inherit;
     background: #464648;
     color: white;
-<<<<<<< HEAD
     border-radius: 5px;
-=======
->>>>>>> origin/main
+    margin-left: 2px;
+
   }
   .app-main-note-edit input {
     height: 50px;
     font-size: 2rem;
+
   }
   
   /* Preview */

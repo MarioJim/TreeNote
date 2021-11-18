@@ -15,7 +15,6 @@
   margin-left: 15%;
 }
 .app-sidebar-Add-Button{
-<<<<<<< HEAD
   background: #0088cc;
   border: 1px #0088cc solid;
   border-radius: 15px;
@@ -26,15 +25,6 @@
   color: #dddddd;
   padding: 15px;
   transition-duration: .6s;
-=======
-    background: none;
-    border: 0;
-    padding: 0;
-    font-size: inherit;
-    font-family: inherit;
-    cursor: pointer;
-    color: #08c;
->>>>>>> origin/main
 }
 
 .app-sidebar-Add-Button:hover{
@@ -79,19 +69,8 @@
   color: white;
 }
 
-<<<<<<< HEAD
  h2{
   width: 100%;
   color: #dddddd;
   border-bottom: 3px solid #999999;
-=======
-.input-bookName{
-  width: 85%;
-  color: #999;
-  padding: 14px 20px;
-  margin: 8px 8px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
->>>>>>> origin/main
 }

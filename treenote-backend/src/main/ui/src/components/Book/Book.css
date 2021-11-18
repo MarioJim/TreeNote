@@ -15,7 +15,10 @@
   margin-left: 15%;
 }
 
-<<<<<<< HEAD
+input {
+    width: 90%;
+    margin-left: 2%;
+}
 
 .app-sidebar-Add-Button{
     background: #0088cc;
@@ -30,27 +33,14 @@
     transition-duration: .6s;
 }
 
-.app-sidebar-Add-Button:hover{
+.app-sidebar-Add-Button:hover {
     background-color: #dddddd; /* Green */
     color: #0088cc;
-=======
-input {
-  width: 90%;
-  margin-left: 2%;
 }
 
-.app-sidebar-Add-Button{
-    background: none;
-    border: 0;
-    margin: right 10px;
-    padding: 0;
-    font-size: inherit;
-    font-family: inherit;
-    cursor: pointer;
-    color: #08c;
-    padding: 15px;
->>>>>>> origin/main
-}
+
+
+
 
 
 .app-sidebar-header {
