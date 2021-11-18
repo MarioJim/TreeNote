@@ -35,6 +35,8 @@ button:hover {
   .app-main-note-preview {
     height: 50vh;
   }
+
+
   
   .no-active-note {
     width: 70%;
@@ -47,13 +49,16 @@ button:hover {
   
   /* Editing */
   .app-main-note-edit {
-    padding: 25px;
+    padding: 30px;
+    background-color: #BBDFC5;
+    border-radius: 15px;
+    margin: 20px;
   }
   
   .app-main-note-edit input,
   textarea {
     display: block;
-    border: 1px solid #ddd;
+    border: 1px Solid #60935d;
     margin-bottom: 20px;
     width: 100%;
     height: calc(50vh - 130px);
@@ -61,6 +66,7 @@ button:hover {
     resize: none;
     font-size: inherit;
     font-family: inherit;
+    background-color: #BBDFC5;
   }
   .app-main-note-edit input {
     height: 50px;
@@ -69,12 +75,16 @@ button:hover {
   
   /* Preview */
   .app-main-note-preview {
-    border-top: 1px solid #ddd;
+    /*border-top: 1px solid #ddd;*/
+    background-color: #FAD8D6;
     overflow-y: scroll;
-    background: rgba(0, 0, 0, 0.02);
+    /*background: rgba(0, 0, 0, 0.02);*/
+    border-radius: 15px;
+    margin: 20px
   }
   
   .preview-title {
+    text-align: center;
     padding: 25px 25px 0 25px;
     margin: 0;
   }
