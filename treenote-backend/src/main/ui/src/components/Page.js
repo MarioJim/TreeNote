@@ -81,12 +81,16 @@ class Page extends Component {
         <h2>Pages</h2>
         </div>
         {pages.map(page => 
-          <div key={page.id} className={`app-sidebar-note ${page.id === activeNote && "active"}`} onClick={()=> {setActiveNote(page, this.props.activeNote); this.delta(page.id)}}>
-            <div className="sidebar-note-title">
-              <strong>{page.title}</strong>
-              <button onClick={()=>deleteNote(page.id)}>Delete</button>
-            </div>
-          </div>
+          {if(page.title != 'New Page'){
+            return(
+            <div key={page.id} className={`app-sidebar-note ${page.id === activeNote && "active"}`} onClick={()=> {setActiveNote(page, this.props.activeNote); this.delta(page.id)}}>
+                 <div className="sidebar-note-title">
+                   <strong>{page.title}</strong>
+                   <button onClick={()=>deleteNote(page.id)}>Delete</button>
+                 </div>
+              </div>
+              )
+          }}
         )}
       </div>
     )

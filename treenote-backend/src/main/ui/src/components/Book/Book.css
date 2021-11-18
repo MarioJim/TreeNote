@@ -20,20 +20,18 @@ input {
             width: 90%;
             margin-left: 2%;
         }
-.editBook{
-  color: aqua;
-
-}
 
 .editButton{
-    background-color: #dddddd;
-    border: 1px #dddddd solid;
-    border-radius: 15px;
-    font-size: inherit;
-    font-family: inherit;
-    cursor: pointer;
-    color: #4CAF50;
-    transition-duration: .6s;
+  background: #22A7F0;
+  border: 1px #22A7F0 solid;
+  background:none;
+  border-radius: 10px;
+  font-size: inherit;
+  font-family: inherit;
+  cursor: pointer;
+  color: #dddddd;
+  padding: 10px;
+  transition-duration: .6s;
 }
 
 .editButton:hover{
@@ -43,8 +41,9 @@ input {
 
 
 .app-sidebar-Add-Button{
-    background: #0088cc;
-    border: 1px #0088cc solid;
+    background: #2ECC71;
+    border: 1px #2ECC71 solid;
+    background:none;
     border-radius: 15px;
     margin: right 10px;
     font-size: inherit;
@@ -59,12 +58,6 @@ input {
     background-color: #dddddd;
     color: #0088cc;
 }
-
-
-
-
-
-
 
 .app-sidebar-header {
   display: flex;

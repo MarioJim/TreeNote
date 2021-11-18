@@ -11,14 +11,15 @@ body,
 }
 
 .saveButton {
-  background: #0088cc;
-  border: 1px #0088cc solid;
-  border-radius: 15px;
+  background: #22A7F0;
+  border: 1px #22A7F0 solid;
+  background:none;
+  border-radius: 10px;
   font-size: inherit;
   font-family: inherit;
   cursor: pointer;
   color: #dddddd;
-  padding: 15px;
+  padding: 10px;
   transition-duration: .6s;
 }
 
@@ -29,10 +30,16 @@ body,
 }
 
 button{
-  border: 1px #dddddd solid;
-  background: #dddddd;
-  border-radius: 15px;
-  color: red;
+  background: #F62459;
+  border: 1px #F62459 solid;
+  background:none;
+  border-radius: 10px;
+  font-size: inherit;
+  font-family: inherit;
+  cursor: pointer;
+  color: #dddddd;
+  padding: 10px;
+  transition-duration: .6s;
 }
 
 button:hover{
