@@ -20,7 +20,6 @@ class Sidebar extends Component {
 
     async function addData(activeNote){
       if ( document.URL.includes("pages") ) {
-        console.log("entre")
         var bookId = parseInt(document.URL.split(/[/ ]+/).pop());
         const page = {book_id: bookId, title : "Untitle Note"}
         axios.post('http://localhost:3000/api/pages/new', page)
